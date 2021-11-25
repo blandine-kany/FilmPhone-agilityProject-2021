@@ -1,6 +1,11 @@
 #Author: @raphabiz
 @US003
 Feature: Battery evolution functionality
+
+  As an user
+  I want to check my battery level
+  In order to plug a charger or not
+
   Scenario: Phone loose battery
     Given phone has battery power
     When phone is used
