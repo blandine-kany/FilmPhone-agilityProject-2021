@@ -9,8 +9,8 @@ package packagePhone;
  */
 public class MobileApp {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private String appname;
-    private double appsize;
+    private String appName;
+    private double appSize;
     private Phone phone;
 
     /**
@@ -21,19 +21,19 @@ public class MobileApp {
     }
 
     public String getAppName() {
-        return appname;
+        return appName;
     }
 
     public void setAppName(String appname) {
-        this.appname = appname;
+        this.appName = appname;
     }
 
     public double getAppSize() {
-        return appsize;
+        return appSize;
     }
 
     public void setAppSize(double appsize) {
-        this.appsize = appsize;
+        this.appSize = appsize;
     }
 
     public String getPhone() {

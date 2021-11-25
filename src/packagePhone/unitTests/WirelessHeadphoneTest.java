@@ -33,8 +33,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * détruit.
  */
 public class WirelessHeadphoneTest {
-    private WirelessHeadphone muskpods;
-    private Phone muskphone;
+    private WirelessHeadphone muskPods;
+    private Phone muskPhone;
 
     // Définissez ici les variables d'instance nécessaires à vos engagements;
     // Vous pouvez également les saisir automatiquement du présentoir
@@ -56,8 +56,8 @@ public class WirelessHeadphoneTest {
     @BeforeEach
     public void setUp() // throws java.lang.Exception
     {
-        muskpods = new WirelessHeadphone();
-        muskphone = new Phone();
+        muskPods = new WirelessHeadphone();
+        muskPhone = new Phone();
     }
 
     /**
@@ -73,26 +73,26 @@ public class WirelessHeadphoneTest {
 
     @Test
     public void testGetBattery() {
-        muskpods.setBattery(55);
-        assertEquals(55, muskpods.getBattery());
+        muskPods.setBattery(55);
+        assertEquals(55, muskPods.getBattery());
     }
 
     @Test
     public void testGetWHeadphoneName() {
-        muskpods.setWHeadphoneName("muskpods");
-        assertEquals("muskpods", muskpods.getWHeadphoneName());
+        muskPods.setWHeadphoneName("muskpods");
+        assertEquals("muskpods", muskPods.getWHeadphoneName());
     }
 
     @Test
     public void testGetIsTurnedOn() {
-        muskpods.setIsTurnedOn(true);
-        assertEquals(true, muskpods.getIsturnedOn());
+        muskPods.setIsTurnedOn(true);
+        assertEquals(true, muskPods.getIsturnedOn());
     }
 
     @Test
     public void testGetPhone() {
-        muskpods.setPhone(muskphone);
-        assertEquals(null, muskpods.getPhone());
+        muskPods.setPhone(muskPhone);
+        assertEquals(null, muskPods.getPhone());
     }
 
 }

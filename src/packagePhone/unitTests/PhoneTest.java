@@ -43,10 +43,10 @@ public class PhoneTest {
     // du présentoir (les objets sans constructeur, comme int, float, etc.).
     protected double fValeur1;
     protected double fValeur2;
-    private Phone muskphone;
+    private Phone muskPhone;
     private MobileApp mobileAp1;
     private MobileApp mobileAp2;
-    private WirelessHeadphone muskpods;
+    private WirelessHeadphone muskPods;
 
     /**
      * Constructeur de la classe-test PhoneTest
@@ -63,10 +63,10 @@ public class PhoneTest {
     public void setUp() // throws java.lang.Exception
     {
         // Initialisez ici vos engagements
-        muskphone = new Phone();
+        muskPhone = new Phone();
         mobileAp1 = new MobileApp();
         mobileAp2 = new MobileApp();
-        muskpods = new WirelessHeadphone();
+        muskPods = new WirelessHeadphone();
     }
 
     /**
@@ -108,131 +108,131 @@ public class PhoneTest {
     public void testFixture() {
         mobileAp1.setAppName("waze");
         mobileAp1.setAppSize(10.0);
-        muskphone.install(mobileAp1);
+        muskPhone.install(mobileAp1);
         mobileAp2.setAppName("waze");
         mobileAp2.setAppSize(11.0);
-        muskphone.install(mobileAp2);
+        muskPhone.install(mobileAp2);
         assertEquals("Phone : default name Battery : "
                 + "100% Memory size : 126.0 Mo [App : call Size : 26.0 Mo, App : messages Size : "
-                + "20.0 Mo, App : waze Size : 10.0 Mo]", muskphone.toString());
+                + "20.0 Mo, App : waze Size : 10.0 Mo]", muskPhone.toString());
     }
 
     @Test
     public void testIsConnected() {
-        muskphone.setPassword("pass1dutout");
-        assertEquals(true, muskphone.getIsConnected());
+        muskPhone.setPassword("pass1dutout");
+        assertEquals(true, muskPhone.getIsConnected());
 
     }
 
     @Test
     public void testGetPasword() {
-        muskphone.setPassword("pass1dutout");
-        assertEquals("pass1dutout", muskphone.getPassword());
+        muskPhone.setPassword("pass1dutout");
+        assertEquals("pass1dutout", muskPhone.getPassword());
 
     }
 
     @Test
     public void testGetIsTurnedOn() {
-        muskphone.setIsTurnedOn(false);
-        assertEquals(false, muskphone.getIsTurnedOn());
+        muskPhone.setIsTurnedOn(false);
+        assertEquals(false, muskPhone.getIsTurnedOn());
     }
 
     @Test
     public void testIsCharging() {
-        muskphone.setBattery(100);
-        assertEquals("Battery is full", muskphone.isCharging());
+        muskPhone.setBattery(100);
+        assertEquals("Battery is full", muskPhone.isCharging());
     }
 
     @Test
     public void testIsCharging2() {
-        muskphone.setBattery(99);
-        assertEquals("Phone battery : 100", muskphone.isCharging());
+        muskPhone.setBattery(99);
+        assertEquals("Phone battery : 100", muskPhone.isCharging());
     }
 
     @Test
     public void testIsDischarging() {
-        muskphone.setIsTurnedOn(true);
-        muskphone.setBattery(55);
-        assertEquals("Phone battery : 54", muskphone.isDischarging());
+        muskPhone.setIsTurnedOn(true);
+        muskPhone.setBattery(55);
+        assertEquals("Phone battery : 54", muskPhone.isDischarging());
     }
 
     @Test
     public void testIsDischarging2() {
-        muskphone.setIsTurnedOn(true);
-        muskphone.setBattery(0);
-        assertEquals("Battery is empty", muskphone.isDischarging());
-        assertEquals(false, muskphone.getIsTurnedOn());
+        muskPhone.setIsTurnedOn(true);
+        muskPhone.setBattery(0);
+        assertEquals("Battery is empty", muskPhone.isDischarging());
+        assertEquals(false, muskPhone.getIsTurnedOn());
     }
 
     @Test
     public void testChangePassword() {
-        muskphone.changePassword("pass1dutout", "newpass");
-        assertEquals("newpass", muskphone.getPassword());
+        muskPhone.changePassword("pass1dutout", "newpass");
+        assertEquals("newpass", muskPhone.getPassword());
 
-        this.muskphone.changePassword("1234", "pass");
-        assertEquals("Error : Wrong Password", this.muskphone.getErrorMessage());
+        this.muskPhone.changePassword("1234", "pass");
+        assertEquals("Error : Wrong Password", this.muskPhone.getErrorMessage());
     }
 
     @Test
     public void testCheckStorage() {
         mobileAp1.setAppSize(190.0);
-        assertEquals(false, muskphone.checkStorage(mobileAp1));
+        assertEquals(false, muskPhone.checkStorage(mobileAp1));
     }
 
     @Test
     public void testGetSim() {
-        muskphone.setSim(true);
-        assertEquals(true, muskphone.getSim());
+        muskPhone.setSim(true);
+        assertEquals(true, muskPhone.getSim());
     }
 
     @Test
     public void testDisconnect() {
-        muskphone.connect(muskpods);
-        muskphone.disconnect(muskpods);
-        assertEquals("Wireless Headphone disconnected", muskphone.getSuccessMessage());
+        muskPhone.connect(muskPods);
+        muskPhone.disconnect(muskPods);
+        assertEquals("Wireless Headphone disconnected", muskPhone.getSuccessMessage());
     }
 
     @Test
     public void testGetBluetoothOn() {
-        muskphone.setBluetoothOn(true);
+        muskPhone.setBluetoothOn(true);
 
-        assertEquals(true, muskphone.getBluetoothOn());
+        assertEquals(true, muskPhone.getBluetoothOn());
 
-        this.muskphone.setBluetoothOn(true);
-        assertEquals("Error : bluetooth is already in this state", this.muskphone.getErrorMessage());
+        this.muskPhone.setBluetoothOn(true);
+        assertEquals("Error : bluetooth is already in this state", this.muskPhone.getErrorMessage());
     }
 
     @Test
     public void testGetWheadphone() {
-        muskphone.setWheadphone(muskpods);
-        assertEquals(muskpods, muskphone.getWheadphone());
+        muskPhone.setWheadphone(muskPods);
+        assertEquals(muskPods, muskPhone.getWheadphone());
     }
 
     @Test
     public void testConnect() {
-        this.muskpods.setIsAvailable(true);
-        this.muskphone.setBluetoothAvailability(true);
-        this.muskphone.connect(this.muskpods);
-        assertEquals("Wireless Headphone connected", this.muskphone.getSuccessMessage());
+        this.muskPods.setIsAvailable(true);
+        this.muskPhone.setBluetoothAvailability(true);
+        this.muskPhone.connect(this.muskPods);
+        assertEquals("Wireless Headphone connected", this.muskPhone.getSuccessMessage());
     }
 
     @Test
     public void testGetMessage() {
-        this.muskphone.setMessage("Musk's phone");
-        assertEquals("Musk's phone", this.muskphone.getMessage());
+        this.muskPhone.setMessage("Musk's phone");
+        assertEquals("Musk's phone", this.muskPhone.getMessage());
     }
 
     @Test
     public void testSendMessage() {
         Phone jeffBesosPhone = new Phone();
-        this.muskphone.sendMessage("Btw, you suck :)", jeffBesosPhone);
+        this.muskPhone.sendMessage("Btw, you suck :)", jeffBesosPhone);
         assertEquals("Btw, you suck :)", jeffBesosPhone.getMessage());
     }
 
     @Test
     public void testSetPassword() {
-        this.muskphone.setPassword("0000");
-        assertFalse(this.muskphone.getIsConnected());
+        this.muskPhone.setPassword("0000");
+        assertFalse(this.muskPhone.getIsConnected());
     }
 
 

@@ -9,15 +9,15 @@ package packagePhone;
  */
 public class WirelessHeadphone {
     private int battery;
-    private String wheadphonename;
-    private boolean isturnedon;
+    private String wheadPhoneName;
+    private boolean isTurnedOn;
     private Phone phone;
-    private boolean isavailable;
+    private boolean isAvailable;
 
     public WirelessHeadphone() {
         this.battery = 100;
-        this.isturnedon = false;
-        this.isavailable = false;
+        this.isTurnedOn = false;
+        this.isAvailable = false;
     }
 
     public int getBattery() {
@@ -29,27 +29,27 @@ public class WirelessHeadphone {
     }
 
     public String getWHeadphoneName() {
-        return wheadphonename;
+        return wheadPhoneName;
     }
 
     public void setWHeadphoneName(String wheadphonename) {
-        this.wheadphonename = wheadphonename;
+        this.wheadPhoneName = wheadphonename;
     }
 
     public boolean getIsturnedOn() {
-        return isturnedon;
+        return isTurnedOn;
     }
 
     public void setIsTurnedOn(boolean isturnedon) {
-        this.isturnedon = isturnedon;
+        this.isTurnedOn = isturnedon;
     }
 
     public boolean getIsAvailable() {
-        return isavailable;
+        return isAvailable;
     }
 
     public void setIsAvailable(boolean isavailable) {
-        this.isavailable = isavailable;
+        this.isAvailable = isavailable;
     }
 
     public Phone getPhone() {

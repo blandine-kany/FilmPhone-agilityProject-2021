@@ -11,18 +11,18 @@ import java.util.ArrayList;
 public class Phone {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private int battery;
-    private double memorysize;
-    private double memoryavailable;
-    private String phonename;
-    private ArrayList<MobileApp> mobileapps = new ArrayList<MobileApp>();
+    private double memorySize;
+    private double memoryAvailable;
+    private String phoneName;
+    private ArrayList<MobileApp> mobileApps = new ArrayList<MobileApp>();
     private String password;
-    private boolean isconnected;
-    private boolean isturnedon;
-    private String errormessage;
-    private String successmessage;
-    private boolean bluetoothon;
-    private boolean bluetoothavailability;
-    private WirelessHeadphone wheadphone;
+    private boolean isConnected;
+    private boolean isTurnedOn;
+    private String errorMessage;
+    private String successMessage;
+    private boolean bluetoothOn;
+    private boolean bluetoothAvailability;
+    private WirelessHeadphone wheadPhone;
     private boolean sim;
     private String message;
 
@@ -32,12 +32,12 @@ public class Phone {
     public Phone() {
         // initialisation des variables d'instance
         this.battery = 100;
-        this.phonename = "default name";
+        this.phoneName = "default name";
         this.password = "pass1dutout";
-        this.isturnedon = false;
-        this.bluetoothon = false;
-        this.memorysize = 126.00;
-        this.memoryavailable = this.memorysize;
+        this.isTurnedOn = false;
+        this.bluetoothOn = false;
+        this.memorySize = 126.00;
+        this.memoryAvailable = this.memorySize;
 
         MobileApp call = new MobileApp();
         call.setAppName("call");
@@ -80,12 +80,12 @@ public class Phone {
     }
 
     public ArrayList<MobileApp> getMobileApps() {
-        return this.mobileapps;
+        return this.mobileApps;
     }
 
     public void install(MobileApp mobileapp) {
         if (verifyUnicityOf(mobileapp) && checkStorage(mobileapp)) {
-            this.mobileapps.add(mobileapp);
+            this.mobileApps.add(mobileapp);
             this.setSuccessMessage("App " + mobileapp.getAppName() + " is installed");
         } else {
             this.setErrorMessage("App " + mobileapp.getAppName() + " not installed");
@@ -99,11 +99,11 @@ public class Phone {
         // Creation of tampon
         String tampon = new String();
         // Iteration on arraylist mobileapps
-        for (int i = 0; i < this.mobileapps.size(); i++) {
+        for (int i = 0; i < this.mobileApps.size(); i++) {
             // We check if there is already same appname than mobileapp in mobileapps
-            if (this.mobileapps.get(i).getAppName() == mobileapp.getAppName()) {
+            if (this.mobileApps.get(i).getAppName() == mobileapp.getAppName()) {
                 // We store tampon appname if we found same appname
-                tampon = this.mobileapps.get(i).getAppName();
+                tampon = this.mobileApps.get(i).getAppName();
             }
             // We store nothing
         }
@@ -135,38 +135,38 @@ public class Phone {
     }
 
     public boolean getIsConnected() {
-        return isconnected;
+        return isConnected;
     }
 
     public void setIsConnected(boolean isconnected) {
-        this.isconnected = isconnected;
+        this.isConnected = isconnected;
     }
 
     public String getErrorMessage() {
-        return errormessage;
+        return errorMessage;
     }
 
     public void setErrorMessage(String errormessage) {
-        this.errormessage = errormessage;
+        this.errorMessage = errormessage;
     }
 
     public String getSuccessMessage() {
-        return successmessage;
+        return successMessage;
     }
 
     public void setSuccessMessage(String successmessage) {
-        this.successmessage = successmessage;
+        this.successMessage = successmessage;
     }
 
     public boolean getIsTurnedOn() {
-        return isturnedon;
+        return isTurnedOn;
     }
 
     public void setIsTurnedOn(boolean isturnedon) {
-        if (this.isturnedon == isturnedon) {
+        if (this.isTurnedOn == isturnedon) {
             this.setErrorMessage("Error : phone is already in this state");
         } else {
-            this.isturnedon = isturnedon;
+            this.isTurnedOn = isturnedon;
             this.setSuccessMessage("Success : phone changes states");
         }
     }
@@ -180,19 +180,19 @@ public class Phone {
     }
 
     public double getMemorySize() {
-        return memorysize;
+        return memorySize;
     }
 
     public void setMemorySize(double memorysize) {
-        this.memorysize = memorysize;
+        this.memorySize = memorysize;
     }
 
     public String getName() {
-        return phonename;
+        return phoneName;
     }
 
     public void setName(String name) {
-        this.phonename = name;
+        this.phoneName = name;
     }
 
     public String toString() {
@@ -201,7 +201,7 @@ public class Phone {
     }
 
     public boolean checkStorage(MobileApp mobileapp) {
-        if (this.memoryavailable - mobileapp.getAppSize() < 0.0) {
+        if (this.memoryAvailable - mobileapp.getAppSize() < 0.0) {
             return false;
         } else {
             return true;
@@ -209,33 +209,33 @@ public class Phone {
     }
 
     public boolean getBluetoothOn() {
-        return bluetoothon;
+        return bluetoothOn;
     }
 
     public void setBluetoothOn(boolean bluetoothon) {
-        if (this.bluetoothon == bluetoothon) {
+        if (this.bluetoothOn == bluetoothon) {
             this.setErrorMessage("Error : bluetooth is already in this state");
         } else {
-            this.bluetoothon = bluetoothon;
+            this.bluetoothOn = bluetoothon;
             this.setSuccessMessage("Success : bluetooth changes states");
             this.setBluetoothAvailability(true);
         }
     }
 
     public boolean getBluetoothAvailability() {
-        return bluetoothavailability;
+        return bluetoothAvailability;
     }
 
     public void setBluetoothAvailability(boolean bluetoothavailability) {
-        this.bluetoothavailability = bluetoothavailability;
+        this.bluetoothAvailability = bluetoothavailability;
     }
 
     public void setWheadphone(WirelessHeadphone wheadphone) {
-        this.wheadphone = wheadphone;
+        this.wheadPhone = wheadphone;
     }
 
     public WirelessHeadphone getWheadphone() {
-        return wheadphone;
+        return wheadPhone;
     }
 
     public void connect(WirelessHeadphone wheadphone) {
