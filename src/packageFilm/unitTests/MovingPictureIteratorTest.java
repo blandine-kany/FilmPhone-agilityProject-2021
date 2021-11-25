@@ -20,7 +20,8 @@ public class MovingPictureIteratorTest {
     private Film film1;
     private Film film2;
 
-    public MovingPictureIteratorTest() { }
+    public MovingPictureIteratorTest() {
+    }
 
     @BeforeEach
     public void setUp() // throws java.lang.Exception
@@ -28,8 +29,8 @@ public class MovingPictureIteratorTest {
         // Initialisez ici vos engagements
         this.film1 = new Film("1st", "d1");
         this.film2 = new Film("2nd", "d2");
-        this.movingPictureList = Arrays.asList(film1, film2);
-        this.movingPictureIterator = new MovingPictureIterator(movingPictureList);
+        this.movingPictureList = Arrays.asList(this.film1, this.film2);
+        this.movingPictureIterator = new MovingPictureIterator(this.movingPictureList);
 
     }
 
@@ -44,19 +45,19 @@ public class MovingPictureIteratorTest {
     }
 
     @Test
-    public void testHasNext(){
+    public void testHasNext() {
         assertTrue(this.movingPictureIterator.hasNext());
         assertFalse(new MovingPictureIterator((new ArrayList<>())).hasNext());
     }
 
     @Test
-    public void testNext(){
+    public void testNext() {
         assertEquals(this.film1, this.movingPictureIterator.next());
     }
 
     @Test
-    public void testReset(){
-        while(this.movingPictureIterator.hasNext())
+    public void testReset() {
+        while (this.movingPictureIterator.hasNext())
             this.movingPictureIterator.next();
 
         this.movingPictureIterator.reset();
@@ -64,7 +65,7 @@ public class MovingPictureIteratorTest {
     }
 
     @Test
-    public void testCurrentItem(){
+    public void testCurrentItem() {
         assertEquals(this.film1, this.movingPictureIterator.currentItem());
     }
 }
