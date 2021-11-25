@@ -8,6 +8,7 @@ import packagePhone.Phone;
 import packagePhone.WirelessHeadphone;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
@@ -167,6 +168,9 @@ public class PhoneTest {
     public void testChangePassword() {
         muskphone.changePassword("pass1dutout", "newpass");
         assertEquals("newpass", muskphone.getPassword());
+
+        this.muskphone.changePassword("1234", "pass");
+        assertEquals("Error : Wrong Password", this.muskphone.getErrorMessage());
     }
 
     @Test
@@ -191,8 +195,11 @@ public class PhoneTest {
     @Test
     public void testGetBluetoothOn() {
         muskphone.setBluetoothOn(true);
-        ;
+
         assertEquals(true, muskphone.getBluetoothOn());
+
+        this.muskphone.setBluetoothOn(true);
+        assertEquals("Error : bluetooth is already in this state", this.muskphone.getErrorMessage());
     }
 
     @Test
@@ -200,5 +207,33 @@ public class PhoneTest {
         muskphone.setWheadphone(muskpods);
         assertEquals(muskpods, muskphone.getWheadphone());
     }
+
+    @Test
+    public void testConnect() {
+        this.muskpods.setIsAvailable(true);
+        this.muskphone.setBluetoothAvailability(true);
+        this.muskphone.connect(this.muskpods);
+        assertEquals("Wireless Headphone connected", this.muskphone.getSuccessMessage());
+    }
+
+    @Test
+    public void testGetMessage() {
+        this.muskphone.setMessage("Musk's phone");
+        assertEquals("Musk's phone", this.muskphone.getMessage());
+    }
+
+    @Test
+    public void testSendMessage() {
+        Phone jeffBesosPhone = new Phone();
+        this.muskphone.sendMessage("Btw, you suck :)", jeffBesosPhone);
+        assertEquals("Btw, you suck :)", jeffBesosPhone.getMessage());
+    }
+
+    @Test
+    public void testSetPassword() {
+        this.muskphone.setPassword("0000");
+        assertFalse(this.muskphone.getIsConnected());
+    }
+
 
 }
