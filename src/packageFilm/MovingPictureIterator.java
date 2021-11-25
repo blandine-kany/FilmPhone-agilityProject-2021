@@ -20,9 +20,7 @@ public class MovingPictureIterator implements Iterator<MovingPicture> {
 
     @Override
     public MovingPicture next() {
-        //if(this.hasNext())
         return this.movingPictureList.get(this.currentIndex++);
-        //else return null;
     }
 
     @Override
